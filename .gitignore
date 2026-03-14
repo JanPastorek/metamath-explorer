@@ -11,4 +11,4 @@ docs/_build/
 .DS_Store
 .pytest_cache/
 *.pyc
-*.egg-info/.pytest_cache/
+*.egg-info/
