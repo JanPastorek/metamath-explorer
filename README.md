@@ -19,14 +19,28 @@ Kolmogorov is a web application designed to help mathematicians visualize and un
 ### Prerequisites
 - Python 3.7+
 - pip (Python package manager)
-- FuzzyWuzzy and Flask python libs
 
 ### Setup
 1. Clone the repository:
-bash
-git clone https://github.com/yourusername/kolmogorov.git
-cd kolmogorov
-2. Run the server from bash by:
-python src/run.py 
-3. Open your web browser and navigate to:
+```bash
+git clone https://github.com/JanPastorek/metamath-explorer.git
+cd metamath-explorer
+```
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Run the server:
+```bash
+python src/run.py
+```
+4. Open your web browser and navigate to:
+```
 http://127.0.0.1:5000
+```
+
+## Running Tests
+```bash
+pip install pytest
+pytest
+```

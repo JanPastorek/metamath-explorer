@@ -64,7 +64,7 @@ class DataHandler:
             return []
         
         prompt = prompt.lower().strip()
-        prompt_tokens = set(prompt.split())
+        prompt_tokens = prompt.split()
         matches = []
         
         # Common abbreviations and variations mapping
