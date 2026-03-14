@@ -2,7 +2,7 @@ import Statement from './Statement.js';
 
 export class BackendAdapter {
     constructor(baseURL) {
-        this.baseURL = baseURL || "http://127.0.0.1:5000";
+        this.baseURL = baseURL || "";
         this.requestQueue = [];
         this.processingQueue = false;
         this.batchSize = 50; // Maximum number of statements to fetch in one request

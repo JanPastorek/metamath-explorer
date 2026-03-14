@@ -1,9 +1,8 @@
-from flask import render_template, Flask, request, jsonify # type: ignore
+from flask import render_template, request, jsonify # type: ignore
 from werkzeug.utils import secure_filename # type: ignore
 import os
 from .DataHandler import DataHandler
 
-app = Flask(__name__)
 data_handler = DataHandler()
 
 # Configure upload folder
@@ -53,7 +52,7 @@ def get_statement(label):
     try:
         statement = data_handler.get_statement(label)
         if isinstance(statement, str):
-            return jsonify({"error, statement probably not found": statement}), 404
+            return jsonify({"error": statement}), 404
         
         # Return statement details as JSON 
         return jsonify({
@@ -80,10 +79,6 @@ def parse_set_mm():
     except Exception as e:
         return jsonify({"message": f"Error: {str(e)}"}), 500
 
-# Add this to create_app() in __init__.py
-app.add_url_rule('/parse_set_mm', 'parse_set_mm', parse_set_mm, methods=['POST'])
-
-@app.route('/search/<query>')
 def search_statements(query):
     try:
         results = data_handler.findStatements(query)
