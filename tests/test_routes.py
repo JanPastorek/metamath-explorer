@@ -1,19 +1,23 @@
 import os
 import sys
 import json
+import tempfile
 import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from app import create_app
+from app import routes as routes_module
 
 FIXTURE_PATH = os.path.join(os.path.dirname(__file__), 'fixtures', 'test.mm')
 
 
 @pytest.fixture
-def app():
+def app(tmp_path):
     app = create_app()
     app.config['TESTING'] = True
+    # Use a temporary directory for uploads during tests
+    routes_module.UPLOAD_FOLDER = str(tmp_path)
     return app
 
 
